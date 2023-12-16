@@ -5,5 +5,5 @@ import com.canermastan.orderservice.dto.OrderRequest;
 import com.canermastan.orderservice.entity.OrderLineItems;
 
 public interface OrderService {
-    void placeOrder(OrderRequest orderRequest);
+    String placeOrder(OrderRequest orderRequest);
 }
