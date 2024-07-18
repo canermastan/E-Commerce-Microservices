@@ -7,6 +7,7 @@ services:
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
       ZOOKEEPER_TICK_TIME: 2000
+
   broker:
     image: confluentinc/cp-kafka:7.0.1
     container_name: broker
@@ -22,3 +23,31 @@ services:
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
       KAFKA_TRANSACTION_STATE_LOG_MIN_ISR: 1
       KAFKA_TRANSACTION_STATE_LOG_REPLICATION_FACTOR: 1
+
+  postgres-order-service:
+    image: postgres:latest
+    container_name: postgres_order_service
+    environment:
+      POSTGRES_DB: order-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_order_service_data:/var/lib/postgresql/data
+
+  postgres-inventory-service:
+    image: postgres:latest
+    container_name: postgres_inventory_service
+    environment:
+      POSTGRES_DB: inventory-service
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: root
+    ports:
+      - "5434:5432"
+    volumes:
+      - postgres_inventory_service_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_order_service_data:
+  postgres_inventory_service_data:
