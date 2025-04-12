@@ -1,96 +1,102 @@
+
 # E-Commerce Microservices API
 
-Bu proje Spring Boot ile geliştirilmiştir ve e-ticaret platformları için mikroservis mimarisi kullanılarak geliştirilmiş bir API örneğidir. Proje aşağıdaki servislerden oluşmaktadır:
+This project is developed using Spring Boot and is an example of an API developed with a microservices architecture for e-commerce platforms. The project consists of the following services:
 
-- **InventoryService**: Ürün envanterini yönetir.
-- **OrderService**: Siparişleri yönetir.
-- **NotificationService**: Kullanıcılara bildirimler gönderir.
-- **ProductService**: Ürünleri yönetir.
-- **Discovery**: Eureka servis keşfi sağlar.
-- **API Gateway**: Tüm servislere merkezi erişim noktası sağlar.
+- **InventoryService**: Manages product inventory.
+- **OrderService**: Manages orders.
+- **NotificationService**: Sends notifications to users.
+- **ProductService**: Manages products.
+- **Discovery**: Provides Eureka service discovery.
+- **API Gateway**: Provides a central access point to all services.
 
-## Spring Eureka Görüntüsü
+## Spring Eureka Overview
 
 ![Spring Eureka](Screenshot_Eureka.png)
 
-## Servislerin Tanıtımı
+## Service Descriptions
 
 ### InventoryService
 
-Ürün envanterini yönetmek için kullanılır.
+Used to manage product inventory.
 
-#### Özellikler
+#### Features
 
-- Stok durumu kontrolü yapar.
+- Checks stock availability.
 
-#### Örnek API Çağrısı
+#### Example API Call
 
 ```http
 GET /api/inventory
 ```
 
 ### OrderService
-Sipariş işlemlerini yönetir.
+Manages order processing.
 
-#### Özellikler
-- Sipariş oluşturur.
+#### Features
 
-#### Örnek API Çağrısı
+- Creates orders.
+
+#### Example API Call
 ```http request
 POST /api/order
 ```
 
 ### ProductService
-#### Ürün bilgilerini yönetir.
+Manages product information.
 
-#### Özellikler
-- Ürün ekler.
-- Ürün bilgilerini görüntüler.
+#### Features
+
+- Adds products.
+- Displays product details.
 
 ```http request
 GET /api/product
 ```
 
 ### Discovery
-Eureka kullanarak servis keşfi sağlar. Tüm mikro servislerin birbirlerini bulmasını ve iletişim kurmasını sağlar.
+Provides service discovery using Eureka. It allows all microservices to find and communicate with each other.
 
-#### Özellikler
-- Servis kaydı ve keşfi.
-- Dinamik yük dengeleme.
+#### Features
+
+- Service registration and discovery.
+- Dynamic load balancing.
 
 ### API Gateway
-Tüm servislere merkezi erişim noktası sağlar. İstekleri ilgili mikro servislere yönlendirir.
+Provides a central access point to all services. It routes requests to the appropriate microservices.
 
-#### Özellikler
-- Merkezi kimlik doğrulama.
-- Yük dengeleme.
-- API yönlendirme.
+#### Features
 
-### Kurulum
-#### Gereksinimler
+- Centralized authentication.
+- Load balancing.
+- API routing.
+
+### Installation
+#### Requirements
+
 - JDK 17
 - Docker
 
-### Kurulum Adımları
-1. Projeyi klonlayın:
+### Installation Steps
+1. Clone the project:
 ``` http request
 git clone https://github.com/your-username/ecommerce-microservices-api.git
 cd ecommerce-microservices-api
 ```
-2. Docker Compose ile servisleri başlatın:
+2. Start the services with Docker Compose:
 
 ```http request
 docker-compose -f docker-compose.yml up -d
 ```
-3. Eureka Dashboard'a erişin:
+3. Access the Eureka Dashboard:
 ```http request
 http://localhost:8761
 ```
 
-4. API Gateway üzerinden servislere erişin:
+4. Access the services through the API Gateway:
 ```http request
 http://localhost:8080
 ```
 
-### Katkıda Bulunma
-#### Bu projeye katkıda bulunmak için, lütfen bir pull request açın veya bir issue oluşturun.
+### Contributing
+#### To contribute to this project, please open a pull request or create an issue.
